@@ -1,0 +1,85 @@
+@startuml
+
+title Mastermind - Class Diagram
+
+
+class Mastermind
+class Player
+class GameTurn
+class Turn
+
+class Board
+class GridColor
+class GridClue
+class GridSecret
+class GridScore
+
+class Pin
+class Clue
+class CWhite
+class CBlack
+class Score
+class SRed
+class SBlue
+class Color
+class Red 
+class Blue
+class Green
+class Yellow
+class Pink
+class White
+class Black
+class Brown
+
+class Action
+class CheckPin
+class PutCluePin
+class PutScorePin
+class PutColorPin
+class PutSecretPin
+
+
+Board  "1" <--* Mastermind
+Player  <--* Mastermind
+GameTurn  "1...N" <--* Mastermind
+
+Pin  "2" <--* Player
+Turn <--* GameTurn
+
+GridColor  "12x5" <--* Board
+GridClue  "12x5" <--* Board
+GridSecret  "1x5" <--* Board
+GridScore  "Nx2" <--* Board
+
+Action <|-down- CheckPin
+Action <|-down- PutCluePin
+Action <|-down- PutScorePin
+Action <|-down- PutColorPin
+Action <|-down- PutSecretPin
+
+Pin <|-down- Clue 
+Clue <|-down- CWhite
+Clue <|-down- CBlack
+Pin <|-down- Score
+Score <|-down- SRed
+Score <|-down- SBlue
+Pin <|-down- Color
+Color <|-down- Red
+Color <|-down- Blue
+Color <|-down- Green
+Color <|-down- Yellow
+Color <|-down- Pink
+Color <|-down- White
+Color <|-down- Black
+Color <|-down- Brown
+
+
+Player --> Action
+Turn --> Player
+Action ..> Pin
+Action ..> Board
+
+
+
+
+@enduml
