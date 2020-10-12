@@ -38,10 +38,17 @@ class PutScorePin
 class PutColorPin
 class PutSecretPin
 
+class Goal
+class PinColor
+
+
+Goal <|-down- PinColor
+Goal ..> "5..*" PutColorPin
+Goal ..> "5" Color
 
 Board  "1" <--* Mastermind
 Player  <--* Mastermind
-GameTurn  "1...N" <--* Mastermind
+GameTurn  "1..*" <--* Mastermind
 
 Pin  "2" <--* Player
 Turn <--* GameTurn
